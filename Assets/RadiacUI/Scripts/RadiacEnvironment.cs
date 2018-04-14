@@ -3,6 +3,10 @@ using System;
 
 namespace RadiacUI
 {
+    /// <summary>
+    /// This class provides a global Update and FixedUpdate used by Radaic UI system.
+    /// In theory this class can be mounted on any GameObject that will never be destroyed.
+    /// </summary>
     [DisallowMultipleComponent]
     public class RadiacEnvironment : MonoBehaviour
     {
@@ -15,8 +19,6 @@ namespace RadiacUI
             if(instance != null) Debug.LogWarning("Radiac Environment replaced.");
             
             instance = this;
-            RadiacUpdates = () => { };
-            RadiacFixedUpdates = () => { };
         }
         
         void Update()
@@ -27,6 +29,12 @@ namespace RadiacUI
         void FixedUpdate()
         {
             RadiacFixedUpdates();
+        }
+        
+        ~RadiacEnvironment()
+        {
+            RadiacUpdates = () => { };
+            RadiacFixedUpdates = () => { };
         }
     }
 }

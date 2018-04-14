@@ -48,7 +48,6 @@ namespace RadiacUI
         public static void EmitSignal(Signal x)
         {
             if(suspended) return;
-            if(x.value == "") return; // do nothing...
             Log.AddLogFormat("Signal [{0}] is emitted!", x);
             
             if(listeners.ContainsKey(x))

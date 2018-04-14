@@ -1,19 +1,21 @@
+#define RADIAC_DEBUG
+
 using UnityEngine;
 
 namespace RadiacUI
 {
-    internal class Log
+    internal static class Log
     {
         public static void AddLog(object s)
         {
-            #if DEBUG
+            #if RADIAC_DEBUG
             Debug.Log(s);
             #endif
         }
         
         public static void AddLogFormat(string s, params object[] args)
         {
-            #if DEBUG
+            #if RADIAC_DEBUG
             Debug.LogFormat(s, args);
             #endif
         }

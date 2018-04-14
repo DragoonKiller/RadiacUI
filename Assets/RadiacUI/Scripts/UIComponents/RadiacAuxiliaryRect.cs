@@ -7,7 +7,7 @@ namespace RadiacUI
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     [RequireComponent(typeof(RadiacUIComponent))]
-    public class RadiacAuxiliaryRect : MonoBehaviour
+    public class RadiacAuxiliaryRect : RadiacAuxiliaryArea
     {
         RectTransform tr;
         
@@ -15,6 +15,7 @@ namespace RadiacUI
         {
             get
             {
+                if(tr == null) tr = this.gameObject.GetComponent<RectTransform>();
                 return _rect.Transform(tr.position);
             }
         }
@@ -26,17 +27,14 @@ namespace RadiacUI
             tr = this.gameObject.GetComponent<RectTransform>();
         }
         
+        public override bool IsPointInside(Vector2 point)
+        {
+            return rect.Contains(point);
+        }
+        
         public void OnDrawGizmosSelected()
         {
-            tr = this.gameObject.GetComponent<RectTransform>();
-            var bottomLeft = new Vector2(rect.xMin, rect.yMin);
-            var bottomRight = new Vector2(rect.xMax, rect.yMin);
-            var topLeft = new Vector2(rect.xMin, rect.yMax);
-            var topRight = new Vector2(rect.xMax, rect.yMax);
-            Debug.DrawLine(bottomLeft, bottomRight, Color.red);
-            Debug.DrawLine(topLeft, topRight, Color.red);
-            Debug.DrawLine(bottomLeft, topLeft, Color.red);
-            Debug.DrawLine(bottomRight, topRight, Color.red);
+            RadiacUtility.DrawRectangleGizmos(rect, tr.position.z + float.Epsilon);
         }
     }
     

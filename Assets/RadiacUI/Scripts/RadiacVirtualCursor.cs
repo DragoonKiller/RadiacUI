@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RadiacUI
 {
-    public sealed class VirtualCursor : MonoBehaviour
+    public static class VirtualCursor
     {
         // In a Time.deltaTime, which Update() takes.
         public static Vector2 deltaPosition { get; private set; }
@@ -31,6 +31,11 @@ namespace RadiacUI
             {
                 return VirtualCamera.bindedCamera.ScreenPointToRay(new Vector2(position.x, position.y));
             }
+        }
+        
+        static VirtualCursor()
+        {
+            
         }
     }
     

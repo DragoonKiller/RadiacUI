@@ -6,18 +6,35 @@ using System.Collections.Generic;
 namespace RadiacUI
 {
     [DisallowMultipleComponent]
-    public abstract class RadiacUIComponent : SignalReceiver
+    public class RadiacUIComponent : SignalReceiver
     {
-        public bool selfActive;
+        public bool _selfActive;
+        public bool selfActive
+        {
+            get { return _selfActive; }
+            
+            /// <summary>
+            /// Set this property true->true or false->false should not trigger callbacks
+            /// because they are not true state switching.
+            /// </summary>
+            set
+            {
+                if(_selfActive && !value) deactiveCallback();
+                if(!_selfActive && value) activeCallback();
+                _selfActive = value;
+            }
+        }
+        
+        public Action activeCallback = () => { };
+        public Action deactiveCallback = () => { };
+        
+        
         public bool active { get { return selfActive && (parent == null || parent.active); } }
         
-        Image image;
-        
-        public Color baseColor = Color.white;
-        
-        [Range(0, 2)] public float fadeTime = 1.0f;
-        
         RadiacUIComponent parent = null;
+        
+        public string[] signalActive;
+        public string[] signalDeactive;
         
         [SerializeField] string switchSignal = "";
         [SerializeField] string activeSignal = "";
@@ -26,13 +43,21 @@ namespace RadiacUI
         protected virtual void Start()
         {
             if(switchSignal != "") AddCallback(new Signal(switchSignal), () => selfActive = !selfActive);
+            
+            if(signalActive.Contains(activeSignal))
+            {
+                throw new ArgumentException("Signal When Active should not contains Active Signal.");
+            }
             if(activeSignal != "") AddCallback(new Signal(activeSignal), () => selfActive = true);
+            
+            if(signalDeactive.Contains(deactiveSignal))
+            {
+                throw new ArgumentException("Signal When Deactive should not contains Deactive Signal.");
+            }
             if(deactiveSignal != "") AddCallback(new Signal(deactiveSignal), () => selfActive = false);
             
-            image = this.gameObject.GetComponent<Image>();
-            if(fadeTime == 0f) throw new ArgumentOutOfRangeException();
-            
-            image.color = baseColor;
+            activeCallback += () => SignalManager.EmitSignal(signalActive);
+            deactiveCallback += () => SignalManager.EmitSignal(signalDeactive);
             
             var par = this.gameObject.transform.parent.gameObject;
             if(par.GetComponent<Canvas>() == null)
@@ -47,9 +72,7 @@ namespace RadiacUI
         
         protected virtual void Update()
         {
-            float step = baseColor.a / fadeTime * Time.deltaTime;
-            float a = Mathf.Clamp(image.color.a + (active ? 1 : -1) * step, 0f, 1.0f);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, a);
+            // Do nothing but preserved for compatibility.
         }
         
     }

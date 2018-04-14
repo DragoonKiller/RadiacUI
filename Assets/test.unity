@@ -112,6 +112,129 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &17228239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 17228240}
+  - component: {fileID: 17228242}
+  - component: {fileID: 17228241}
+  - component: {fileID: 17228244}
+  - component: {fileID: 17228243}
+  - component: {fileID: 17228245}
+  m_Layer: 5
+  m_Name: Main2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &17228240
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 150, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1200357726}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 250}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &17228241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &17228242
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+--- !u!114 &17228243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e43a0edbea2ce24b9c5959a7bd1c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  fadeTime: 0.1
+--- !u!114 &17228244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5d8a9ea9994544798f623c68ddc05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selfActive: 0
+  signalActive: []
+  signalDeactive: []
+  switchSignal: 
+  activeSignal: Main2.Active
+  deactiveSignal: Main2.Deactive
+  signalMouseEnter: []
+  signalMouseLeave:
+  - Main2.Deactive
+  signalMouseHover: []
+  signalMouseMove: []
+--- !u!114 &17228245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17228239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cc3e4dd6253a64189836f708d6175d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rect:
+    serializedVersion: 2
+    x: -250
+    y: -80
+    width: 100
+    height: 50
 --- !u!1 &185419641
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +332,114 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &534044575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 534044576}
+  - component: {fileID: 534044579}
+  - component: {fileID: 534044578}
+  - component: {fileID: 534044577}
+  - component: {fileID: 534044580}
+  m_Layer: 5
+  m_Name: OpenMain2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &534044576
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534044575}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -200, y: 85, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1200357726}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -15}
+  m_SizeDelta: {x: 100, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &534044577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534044575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab35dfe5b78a771428d415e9e17d14f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selfActive: 1
+  signalActive: []
+  signalDeactive: []
+  switchSignal: 
+  activeSignal: 
+  deactiveSignal: 
+  signalMouseEnter:
+  - Main2.Active
+  signalMouseLeave: []
+  signalMouseHover: []
+  signalMouseMove: []
+  signalMouseClick: []
+  signalMousePressing: []
+  signalMouseRelease: []
+--- !u!114 &534044578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534044575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &534044579
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534044575}
+--- !u!114 &534044580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534044575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e43a0edbea2ce24b9c5959a7bd1c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.5661765, g: 0.5351689, b: 0.11656576, a: 1}
+  fadeTime: 0.15
 --- !u!1 &615351811
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +452,7 @@ GameObject:
   - component: {fileID: 615351816}
   - component: {fileID: 615351813}
   - component: {fileID: 615351814}
+  - component: {fileID: 615351815}
   m_Layer: 5
   m_Name: Sec
   m_TagString: Untagged
@@ -274,18 +506,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5d8a9ea9994544798f623c68ddc05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfActive: 0
-  baseColor: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 1}
-  fadeTime: 0.2
+  _selfActive: 0
+  signalActive: []
+  signalDeactive: []
   switchSignal: Sec.Switch
   activeSignal: Sec.Active
   deactiveSignal: Sec.Deactive
-  selfSuspended: 0
   signalMouseEnter: []
   signalMouseLeave:
   - Sec.Deactive
   signalMouseHover: []
   signalMouseMove: []
+--- !u!114 &615351815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615351811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e43a0edbea2ce24b9c5959a7bd1c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 1}
+  fadeTime: 0.2
 --- !u!114 &615351816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 0}
+  m_Color: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 0.359}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -478,6 +722,7 @@ GameObject:
   - component: {fileID: 1200357727}
   - component: {fileID: 1200357731}
   - component: {fileID: 1200357729}
+  - component: {fileID: 1200357730}
   m_Layer: 5
   m_Name: Main
   m_TagString: Untagged
@@ -494,7 +739,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -228, y: -329.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 534044576}
+  - {fileID: 17228240}
   m_Father: {fileID: 185419645}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -515,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.447}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -547,18 +794,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5d8a9ea9994544798f623c68ddc05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfActive: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  fadeTime: 0.2
+  _selfActive: 0
+  signalActive: []
+  signalDeactive:
+  - Main2.Deactive
   switchSignal: Main.Switch
   activeSignal: Main.Active
   deactiveSignal: Main.Deactive
-  selfSuspended: 0
   signalMouseEnter: []
   signalMouseLeave:
   - Main.Deactive
   signalMouseHover: []
   signalMouseMove: []
+--- !u!114 &1200357730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200357725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e43a0edbea2ce24b9c5959a7bd1c0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  fadeTime: 0.2
 --- !u!114 &1200357731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +1006,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921166315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -328, y: -444.5, z: 0}
+  m_LocalPosition: {x: -328, y: -444.5, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185419645}
@@ -768,13 +1028,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab35dfe5b78a771428d415e9e17d14f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfActive: 1
-  baseColor: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 1}
-  fadeTime: 1
+  _selfActive: 1
+  signalActive: []
+  signalDeactive: []
   switchSignal: 
   activeSignal: 
   deactiveSignal: 
-  selfSuspended: 0
   signalMouseEnter:
   - Sec.Active
   signalMouseLeave: []
@@ -841,7 +1100,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063237140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -428, y: -444.5, z: 0}
+  m_LocalPosition: {x: -428, y: -444.5, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185419645}
@@ -896,13 +1155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab35dfe5b78a771428d415e9e17d14f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfActive: 1
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  fadeTime: 1
+  _selfActive: 1
+  signalActive: []
+  signalDeactive: []
   switchSignal: 
   activeSignal: 
   deactiveSignal: 
-  selfSuspended: 0
   signalMouseEnter:
   - Main.Active
   signalMouseLeave: []

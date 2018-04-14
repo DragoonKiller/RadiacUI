@@ -15,26 +15,25 @@ namespace RadiacUI
         {
             base.Update();
             
-            if(curTriggered)
+            if(cursorHovering)
             {
-                if(Input.GetMouseButtonDown(0))
+                if(cursorHovering && Input.GetMouseButtonDown(0))
                 {
                     SignalManager.EmitSignal(signalMouseClick);
                 }
                 
-                if(Input.GetMouseButton(0))
+                if(cursorHovering && Input.GetMouseButton(0))
                 {
+                    // This signal will call once per frame.
+                    // use it wisely.
                     SignalManager.EmitSignal(signalMousePressing);
                 }
                 
-                if(Input.GetMouseButtonUp(0))
+                if(cursorHovering && Input.GetMouseButtonUp(0))
                 {
                     SignalManager.EmitSignal(signalMouseRelease);
                 }
             }
-            
         }
     }
-    
-    
 }
