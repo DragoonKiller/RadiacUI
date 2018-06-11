@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColor: {r: 1, g: 1, b: 1, a: 1}
-  fadeTime: 0.1
+  fadeTime: 0.25
 --- !u!114 &17228244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   - Main2.Deactive
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
 --- !u!114 &17228245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 185419641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 478, y: 459.5, z: 0}
+  m_LocalPosition: {x: 239.5, y: 220.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2063237141}
@@ -325,7 +326,7 @@ RectTransform:
   - {fileID: 1921166316}
   - {fileID: 615351812}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -358,7 +359,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534044575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -200, y: 85, z: -10}
+  m_LocalPosition: {x: -200, y: 85, z: -4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1200357726}
@@ -391,6 +392,7 @@ MonoBehaviour:
   signalMouseLeave: []
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
   signalMouseClick: []
   signalMousePressing: []
   signalMouseRelease: []
@@ -439,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColor: {r: 0.5661765, g: 0.5351689, b: 0.11656576, a: 1}
-  fadeTime: 0.15
+  fadeTime: 0.25
 --- !u!1 &615351811
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,15 +469,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615351811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -228, y: -329.5, z: 0}
+  m_LocalPosition: {x: 10, y: -91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185419645}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -228, y: -329.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 249.5, y: 129.5}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615351813
@@ -517,6 +519,7 @@ MonoBehaviour:
   - Sec.Deactive
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
 --- !u!114 &615351815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColor: {r: 0.9098039, g: 0.87058824, b: 0.5372549, a: 1}
-  fadeTime: 0.2
+  fadeTime: 0.25
 --- !u!114 &615351816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +593,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -703,7 +706,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -737,7 +740,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1200357725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -228, y: -329.5, z: 0}
+  m_LocalPosition: {x: 10, y: -91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 534044576}
@@ -745,9 +748,9 @@ RectTransform:
   m_Father: {fileID: 185419645}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -228, y: -329.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 249.5, y: 129.5}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200357727
@@ -806,6 +809,7 @@ MonoBehaviour:
   - Main.Deactive
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
 --- !u!114 &1200357730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseColor: {r: 1, g: 1, b: 1, a: 1}
-  fadeTime: 0.2
+  fadeTime: 0.25
 --- !u!114 &1200357731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +903,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1890746352
 GameObject:
@@ -979,7 +983,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921166315
 GameObject:
@@ -1006,7 +1010,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921166315}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -328, y: -444.5, z: 20}
+  m_LocalPosition: {x: -89.499985, y: -205.5, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185419645}
@@ -1039,6 +1043,7 @@ MonoBehaviour:
   signalMouseLeave: []
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
   signalMouseClick: []
   signalMousePressing: []
   signalMouseRelease: []
@@ -1100,7 +1105,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063237140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -428, y: -444.5, z: 20}
+  m_LocalPosition: {x: -189.5, y: -205.5, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 185419645}
@@ -1166,6 +1171,7 @@ MonoBehaviour:
   signalMouseLeave: []
   signalMouseHover: []
   signalMouseMove: []
+  useBaseRect: 1
   signalMouseClick: []
   signalMousePressing: []
   signalMouseRelease: []

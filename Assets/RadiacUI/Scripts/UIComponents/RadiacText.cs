@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace  RadiacUI
 {
-    
     [RequireComponent(typeof(Text))]
     public class RadiacText : MonoBehaviour
     {

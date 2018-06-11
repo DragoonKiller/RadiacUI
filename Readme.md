@@ -7,9 +7,9 @@ Unity's current UI system is kinda a disaster when managing complex UI logic and
 
 ## Progress
 
-[x] Done.
-[-] In progress.
-[ ] Not being considered yet.
+[x] Done.  
+[-] In progress.  
+[ ] Not being considered yet.  
 
 * Signal Reaction System :  
 [x] Signal interfaces and base (example) classes.  
@@ -31,12 +31,12 @@ Unity's current UI system is kinda a disaster when managing complex UI logic and
 * Localization Support :  
 [-] String conversions.  
 [ ] Font and string management.  
-[ ] Other visiable UI-related resources management (like pictures for UI, but not for game scenes).
+[ ] Other visiable UI-related resources management (like pictures for UI, but not for game scenes).  
 
 * Preset Components :
-[x] Response Area extension (interface).
-[x] Button
-[-] Image
-[-] Label and Text
-[-] Scroll Area
-[-] Progress Bar
+[x] Response Area extension (interface).  
+[x] Button  
+[-] Image  
+[-] Label and Text  
+[-] Scroll Area  
+- [-] Progress Bar  

@@ -21,6 +21,7 @@ namespace RadiacUI
         
         protected RadiacAuxiliaryArea[] aux;
         protected RectTransform tr;
+        [SerializeField] bool useBaseRect = true;
         
         /// <summary>
         /// True IFF cursor is pointing to this object or at least one of this object's children.
@@ -37,7 +38,7 @@ namespace RadiacUI
             RadiacPanel res = null;
             foreach(var i in all)
             {
-                if(i.selfActive && i.IsPointInsidePanel(VirtualCursor.position))
+                if(i.active && i.IsPointInsidePanel(VirtualCursor.position))
                 {
                     if(res == null || i.gameObject.transform.position.z < res.gameObject.transform.position.z)
                     {
@@ -45,6 +46,7 @@ namespace RadiacUI
                     }
                 }
             }
+            
             
             // Set the hit and its parent objects "cursorHovering".
             foreach(var i in all) i.cursorHovering = false;
@@ -118,7 +120,7 @@ namespace RadiacUI
         internal bool IsPointInsidePanel(Vector2 pos)
         {
             bool x = false;
-            x |= tr.rect.Transform(tr.position).Contains(pos);
+            if(useBaseRect) x |= tr.rect.Transform(tr.position).Contains(pos);
             if(aux != null) foreach(var i in aux) x |= i.IsPointInside(pos);
             return x;
         }
@@ -126,7 +128,7 @@ namespace RadiacUI
         public void OnDrawGizmosSelected()
         {
             tr = this.gameObject.GetComponent<RectTransform>();
-            RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon);
+            if(useBaseRect) RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon);
         }
     }
 }

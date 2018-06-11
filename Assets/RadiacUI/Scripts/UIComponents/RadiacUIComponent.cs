@@ -8,7 +8,7 @@ namespace RadiacUI
     [DisallowMultipleComponent]
     public class RadiacUIComponent : SignalReceiver
     {
-        public bool _selfActive;
+        [SerializeField] bool _selfActive;
         public bool selfActive
         {
             get { return _selfActive; }

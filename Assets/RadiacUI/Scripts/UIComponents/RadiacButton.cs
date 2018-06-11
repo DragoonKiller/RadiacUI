@@ -4,6 +4,10 @@ using System;
 
 namespace RadiacUI
 {
+    /// <summary>
+    /// Button supports click, pressing and release events.
+    /// 
+    /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class RadiacButton : RadiacPanel
     {
@@ -15,25 +19,23 @@ namespace RadiacUI
         {
             base.Update();
             
-            if(cursorHovering)
+            if(cursorHovering && Input.GetMouseButtonDown(0))
             {
-                if(cursorHovering && Input.GetMouseButtonDown(0))
-                {
-                    SignalManager.EmitSignal(signalMouseClick);
-                }
-                
-                if(cursorHovering && Input.GetMouseButton(0))
-                {
-                    // This signal will call once per frame.
-                    // use it wisely.
-                    SignalManager.EmitSignal(signalMousePressing);
-                }
-                
-                if(cursorHovering && Input.GetMouseButtonUp(0))
-                {
-                    SignalManager.EmitSignal(signalMouseRelease);
-                }
+                SignalManager.EmitSignal(signalMouseClick);
             }
+            
+            if(cursorHovering && Input.GetMouseButton(0))
+            {
+                // This signal will call once per frame.
+                // use it wisely.
+                SignalManager.EmitSignal(signalMousePressing);
+            }
+            
+            if(cursorHovering && Input.GetMouseButtonUp(0))
+            {
+                SignalManager.EmitSignal(signalMouseRelease);
+            }
+            
         }
     }
 }
