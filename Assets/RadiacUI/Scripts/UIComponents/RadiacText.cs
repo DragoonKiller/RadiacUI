@@ -4,24 +4,31 @@ using UnityEngine.UI;
 namespace  RadiacUI
 {
     [RequireComponent(typeof(Text))]
-    public class RadiacText : MonoBehaviour
+    public class RadiacText : RadiacUIComponent
     {
         public string requestString;
         
-        Text tx;
+        Text text { get { return this.gameObject.GetComponent<Text>(); } }
+        
+        protected override void Start()
+        {
+            base.Start();
+            
+            if(requestString == "")
+            {
+                requestString = text.text;
+            }
+        }
         
         void SyncText()
         {
-            tx.text = LocalizationSupport.GetLocalizedString(requestString);
+            text.text = LocalizationSupport.GetLocalizedString(requestString);
         }
         
-        void Start()
+        protected override void Update()
         {
-            tx = this.gameObject.GetComponent<Text>();
-        }
-        
-        void Update()
-        {
+            base.Update();
+            
             // TODO...
             // Is is a good idea to get string every frame?
             SyncText();

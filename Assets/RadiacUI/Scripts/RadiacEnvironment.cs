@@ -20,12 +20,14 @@ namespace RadiacUI
             
             instance = this;
             
+            RadiacUpdates = () => { };
+            RadiacFixedUpdates = () => { };
+            
             // Static initialization are placed here.
             
             LocalizationSupport.LoadLocalizationFile();
             
-            RadiacUpdates = () => { };
-            RadiacFixedUpdates = () => { };
+            RadiacPanel.InitUpdator();
         }
         
         void Update()
@@ -36,12 +38,6 @@ namespace RadiacUI
         void FixedUpdate()
         {
             RadiacFixedUpdates();
-        }
-        
-        ~RadiacEnvironment()
-        {
-            RadiacUpdates = () => { };
-            RadiacFixedUpdates = () => { };
         }
     }
 }

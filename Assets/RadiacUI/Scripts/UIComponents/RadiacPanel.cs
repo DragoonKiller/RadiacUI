@@ -19,8 +19,8 @@ namespace RadiacUI
         
         Vector2 lastCursorPos;
         
-        protected RadiacAuxiliaryArea[] aux;
-        protected RectTransform tr;
+        protected RadiacAuxiliaryArea[] aux { get { return this.gameObject.GetComponents<RadiacAuxiliaryRect>(); } }
+        protected RectTransform tr { get { return this.gameObject.GetComponent<RectTransform>(); } }
         [SerializeField] bool useBaseRect = true;
         
         /// <summary>
@@ -30,16 +30,9 @@ namespace RadiacUI
         
         protected override void Start()
         {
-            if(!listenerAssigned)
-            {
-                RadiacEnvironment.RadiacUpdates += UpdateCursorHovering;
-                listenerAssigned = true;
-            }
-            
             base.Start();
-            tr = this.gameObject.GetComponent<RectTransform>();
+            
             lastCursorPos = VirtualCursor.position;
-            aux = this.gameObject.GetComponents<RadiacAuxiliaryRect>();
             all.Add(this);
         }
         
@@ -98,13 +91,23 @@ namespace RadiacUI
         
         public void OnDrawGizmosSelected()
         {
-            tr = this.gameObject.GetComponent<RectTransform>();
             if(useBaseRect) RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon);
         }
         
         // ============================================================================================================
         // ============================================================================================================
         // ============================================================================================================
+        
+        public static void InitUpdator()
+        {
+            if(listenerAssigned)
+            {
+                Debug.LogWarning("Radiac Panel's updator re-inited!");
+            }
+            
+            RadiacEnvironment.RadiacUpdates += UpdateCursorHovering;
+            listenerAssigned = true;
+        }
         
         /// <summary>
         /// To build up a listener monitoring cursorHovering property, a static method will be assigned in Start().
@@ -124,7 +127,6 @@ namespace RadiacUI
                     }
                 }
             }
-            
             
             // Set the hit and its parent objects "cursorHovering".
             foreach(var i in all) i.cursorHovering = false;

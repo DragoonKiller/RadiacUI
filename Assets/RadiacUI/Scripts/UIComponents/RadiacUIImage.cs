@@ -5,7 +5,7 @@ using System;
 
 namespace RadiacUI
 {
-    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Graphic))]
     [RequireComponent(typeof(RadiacUIComponent))]
     [DisallowMultipleComponent]
     public sealed class RadiacUIImage : MonoBehaviour
@@ -13,7 +13,7 @@ namespace RadiacUI
         public Color baseColor = Color.white;
         public float fadeSpeed;
         
-        Image image { get { return this.gameObject.GetComponent<Image>(); } }
+        Graphic image { get { return this.gameObject.GetComponent<Graphic>(); } }
         RadiacUIComponent uiBase { get { return this.gameObject.GetComponent<RadiacUIComponent>(); } }
         RadiacUIImage parent { get { return this.gameObject.transform.parent.gameObject.GetComponent<RadiacUIImage>(); } }
         
@@ -32,5 +32,4 @@ namespace RadiacUI
             image.color = new Color(image.color.r, image.color.g, image.color.b, transparency);
         }
     }
-    
 }

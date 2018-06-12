@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace RadiacUI
 {
@@ -65,18 +66,28 @@ namespace RadiacUI
                     transfer.Add(parts[0], parts[1]);
                 }
             }
-            
-            
         }
         
-        public static string GetLocalizedString(string indexer)
+        public static string GetLocalizedString(string source)
         {
-            if(transfer.ContainsKey(indexer))
+            var src = source.Split('$');
+            StringBuilder sb = new StringBuilder();
+            
+            for(int i=0; i<src.Length; i++)
             {
-                return transfer[indexer];
+                string s = src[i];
+                if((i & 1) == 1)
+                {
+                    if(transfer.ContainsKey(s))
+                    {
+                        s = transfer[s];
+                    }
+                }
+                
+                sb.Append(s);
             }
             
-            return indexer;
+            return sb.ToString();
         }
     }
     

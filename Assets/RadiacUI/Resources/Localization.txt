@@ -2,4 +2,5 @@
 # this is single line comments.
 # Please keep the encoding of this file UTF-8, and line break as \n instead of \r\n.
 
-LocalizaitionTest=LOCALIZATION_TEST
+LocalizationTest=本地化测试
+Close=关闭
