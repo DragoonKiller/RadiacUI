@@ -4,36 +4,83 @@ using System.Collections.Generic;
 
 namespace RadiacUI
 {
-    internal static class RadiacUtility
+    // ================================================================================================================
+    // ================================================================================================================
+    // ================================================================================================================
+    
+    public static class RadiacFunctional
     {
-        internal static Rect Transform(this Rect rect, Vector2 pos)
+        public static To[] Map<From, To>(From[] src, Func<From, To> f)
         {
-            return new Rect(rect.x + pos.x, rect.y + pos.y, rect.width, rect.height);
+            To[] res = new To[src.Length];
+            for(int i=0; i<=src.Length; i++) res[i] = f(src[i]); 
+            return res;
         }
         
-        internal static bool IsInRect(this Vector2 pos, Rect rect)
+        public static SetTo Map<From, To, SetFrom, SetTo>(IEnumerable<From> src, Func<From, To> f)
+            where SetTo : ICollection<To>, new()
         {
-            return rect.Contains(pos);
+            SetTo res = new SetTo();
+            foreach(var i in src) res.Add(f(i));
+            return res;
         }
         
-        internal static bool IsInAnyOf(this Vector2 pos, params Rect[] rects)
+        public static int Count<T>(IEnumerable<T> src, Predicate<T> f)
         {
-            foreach(var i in rects) if(pos.IsInRect(i)) return true;
-            return false;
+            int c = 0;
+            foreach(var i in src) if(f(i)) c++;
+            return c;
         }
         
-        internal static bool IsInAllOf(this Vector2 pos, params Rect[] rects)
+        public static RetType Filter<T, RetType>(IEnumerable<T> src, Predicate<T> f)
+            where RetType : ICollection<T>, new()
         {
-            foreach(var i in rects) if(!pos.IsInRect(i)) return false;
-            return true;
+            RetType res = new RetType();
+            foreach(var i in src) res.Add(i);
+            return res;
         }
         
-        internal static bool Contains<T>(this IList<T> v, T val) where T : IEquatable<T>
+        public static Target ToCollection<T, Target>(this IEnumerable<T> src)
+            where Target : ICollection<T>, new()
         {
-            foreach(var i in v) if(i.Equals(val)) return true;
-            return false;
+            Target res = new Target();
+            foreach(var i in src) res.Add(i);
+            return res;
         }
         
+        public static List<T> ToList<T>(this IEnumerable<T> src)
+        {
+            return src.ToCollection<T, List<T>>();
+        }
+        
+        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> src)
+        {
+            return src.ToCollection<T, HashSet<T>>();
+        }
+    }
+    
+    // ================================================================================================================
+    // ================================================================================================================
+    // ================================================================================================================
+    
+    internal static class RadiacCollection
+    {
+        public static V ElementAt<K, V>(this IDictionary<K, V> dict, K index)
+            where V : new()
+        {
+            if(dict.ContainsKey(index)) return dict[index];
+            V newElement = new V();
+            dict.Add(index, newElement);
+            return newElement;
+        }
+    }
+    
+    // ================================================================================================================
+    // ================================================================================================================
+    // ================================================================================================================
+    
+    internal static class RadiacAlgorithm
+    {
         internal enum DFSStyle
         {
             Preorder,
@@ -69,6 +116,40 @@ namespace RadiacUI
         {
             ForeachChild(root, (x) => DFSPreorder(x, f));
             f(root);
+        }
+    }
+    
+    // ================================================================================================================
+    // ================================================================================================================
+    // ================================================================================================================
+    internal static class RadiacUtility
+    {
+        internal static Rect Transform(this Rect rect, Vector2 pos)
+        {
+            return new Rect(rect.x + pos.x, rect.y + pos.y, rect.width, rect.height);
+        }
+        
+        internal static bool IsInRect(this Vector2 pos, Rect rect)
+        {
+            return rect.Contains(pos);
+        }
+        
+        internal static bool IsInAnyOf(this Vector2 pos, params Rect[] rects)
+        {
+            foreach(var i in rects) if(pos.IsInRect(i)) return true;
+            return false;
+        }
+        
+        internal static bool IsInAllOf(this Vector2 pos, params Rect[] rects)
+        {
+            foreach(var i in rects) if(!pos.IsInRect(i)) return false;
+            return true;
+        }
+        
+        internal static bool Contains<T>(this IList<T> v, T val) where T : IEquatable<T>
+        {
+            foreach(var i in v) if(i.Equals(val)) return true;
+            return false;
         }
         
         internal static void DrawRectangleGizmos(Rect rect, float h)

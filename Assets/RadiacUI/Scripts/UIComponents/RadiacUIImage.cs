@@ -10,27 +10,26 @@ namespace RadiacUI
     [DisallowMultipleComponent]
     public sealed class RadiacUIImage : MonoBehaviour
     {
-        RadiacUIComponent uiBase;
-        Image image;
-        
         public Color baseColor = Color.white;
+        public float fadeSpeed;
         
-        [Range(0, 2)] public float fadeTime = 1.0f;
+        Image image { get { return this.gameObject.GetComponent<Image>(); } }
+        RadiacUIComponent uiBase { get { return this.gameObject.GetComponent<RadiacUIComponent>(); } }
+        RadiacUIImage parent { get { return this.gameObject.transform.parent.gameObject.GetComponent<RadiacUIImage>(); } }
+        
+        public float selfTransparency;
+        public float transparency { get { return (parent == null ? 1.0f : parent.transparency) * selfTransparency;  } }
         
         void Start()
         {
-            image = this.gameObject.GetComponent<Image>();
-            if(fadeTime == 0f) throw new ArgumentOutOfRangeException();
-            image.color = baseColor;
-            
-            uiBase = this.gameObject.GetComponent<RadiacUIComponent>();
+            if(fadeSpeed <= 0f) throw new ArgumentOutOfRangeException();
         }
         
         void Update()
         {
-            float step = baseColor.a / fadeTime * Time.deltaTime;
-            float a = Mathf.Clamp(image.color.a + (uiBase.active ? 1 : -1) * step, 0f, 1.0f);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, a);
+            float step = fadeSpeed * Time.deltaTime;
+            selfTransparency = Mathf.Clamp(selfTransparency + (uiBase.active ? 1 : -1) * step, 0f, 1.0f);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, transparency);
         }
     }
     

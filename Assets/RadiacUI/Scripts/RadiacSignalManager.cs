@@ -23,17 +23,17 @@ namespace RadiacUI
     {
         public string value;
         public Signal(string name) { value = name; }
-        public int CompareTo(Signal x) { return value.CompareTo(x.value); }
-        public static bool operator<(Signal a, Signal b) { return a.CompareTo(b) < 0; }
-        public static bool operator==(Signal a, Signal b) { return a.CompareTo(b) == 0; }
-        public static bool operator>(Signal a, Signal b) { return a.CompareTo(b) > 0; }
-        public static bool operator!=(Signal a, Signal b) { return a.CompareTo(b) != 0; }
-        public static bool operator<=(Signal a, Signal b) { return a.CompareTo(b) <= 0; }
-        public static bool operator>=(Signal a, Signal b) { return a.CompareTo(b) >= 0; }
-        public bool Equals(Signal x) { return this.CompareTo(x) == 0; }
+        public int CompareTo(Signal x) => value.CompareTo(x.value);
+        public static bool operator<(Signal a, Signal b) => a.CompareTo(b) < 0;
+        public static bool operator==(Signal a, Signal b) => a.CompareTo(b) == 0;
+        public static bool operator>(Signal a, Signal b) => a.CompareTo(b) > 0;
+        public static bool operator!=(Signal a, Signal b) => a.CompareTo(b) != 0;
+        public static bool operator<=(Signal a, Signal b) => a.CompareTo(b) <= 0;
+        public static bool operator>=(Signal a, Signal b) => a.CompareTo(b) >= 0;
+        public bool Equals(Signal x) => this.CompareTo(x) == 0;
         public override bool Equals(object obj) { throw new NotSupportedException(); }
-        public override int GetHashCode() { return value.GetHashCode(); }
-        public override string ToString() { return value; }
+        public override int GetHashCode() => value.GetHashCode();
+        public override string ToString() => value;
     }
     
     public static class SignalManager

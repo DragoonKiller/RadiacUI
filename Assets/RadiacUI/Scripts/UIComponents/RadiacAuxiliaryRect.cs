@@ -28,14 +28,11 @@ namespace RadiacUI
         }
         
         public override bool IsPointInside(Vector2 point)
-        {
-            return rect.Contains(point);
-        }
+            => rect.Contains(point);
         
         public void OnDrawGizmosSelected()
-        {
-            RadiacUtility.DrawRectangleGizmos(rect, tr.position.z + float.Epsilon);
-        }
+            => RadiacUtility.DrawRectangleGizmos(rect, tr.position.z + float.Epsilon);
+        
     }
     
 }

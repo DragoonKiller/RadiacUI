@@ -28,36 +28,6 @@ namespace RadiacUI
         /// </summary>
         internal bool cursorHovering { get; private set; }
         
-        /// <summary>
-        /// To build up a listener monitoring cursorHovering property, a static method will be assigned.
-        /// </summary>
-        bool listenerAssigned = false;
-        static void UpdateCursorHovering()
-        {
-            // Find what the cursor hits.
-            RadiacPanel res = null;
-            foreach(var i in all)
-            {
-                if(i.active && i.IsPointInsidePanel(VirtualCursor.position))
-                {
-                    if(res == null || i.gameObject.transform.position.z < res.gameObject.transform.position.z)
-                    {
-                        res = i;
-                    }
-                }
-            }
-            
-            
-            // Set the hit and its parent objects "cursorHovering".
-            foreach(var i in all) i.cursorHovering = false;
-            
-            while(res != null)
-            {
-                res.cursorHovering = true;
-                res = res.gameObject.transform.parent.GetComponent<RadiacPanel>();
-            }
-        }
-        
         protected override void Start()
         {
             if(!listenerAssigned)
@@ -73,8 +43,9 @@ namespace RadiacUI
             all.Add(this);
         }
         
-        protected virtual void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             all.Remove(this);
         }
         
@@ -130,5 +101,41 @@ namespace RadiacUI
             tr = this.gameObject.GetComponent<RectTransform>();
             if(useBaseRect) RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon);
         }
+        
+        // ============================================================================================================
+        // ============================================================================================================
+        // ============================================================================================================
+        
+        /// <summary>
+        /// To build up a listener monitoring cursorHovering property, a static method will be assigned in Start().
+        /// </summary>
+        static bool listenerAssigned = false;
+        static void UpdateCursorHovering()
+        {
+            // Find what the cursor hits.
+            RadiacPanel res = null;
+            foreach(var i in all)
+            {
+                if(i.active && i.IsPointInsidePanel(VirtualCursor.position))
+                {
+                    if(res == null || i.gameObject.transform.position.z < res.gameObject.transform.position.z)
+                    {
+                        res = i;
+                    }
+                }
+            }
+            
+            
+            // Set the hit and its parent objects "cursorHovering".
+            foreach(var i in all) i.cursorHovering = false;
+            
+            while(res != null)
+            {
+                res.cursorHovering = true;
+                res = res.gameObject.transform.parent.GetComponent<RadiacPanel>();
+            }
+        }
+        
+        
     }
 }

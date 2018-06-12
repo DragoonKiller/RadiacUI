@@ -8,17 +8,24 @@ namespace RadiacUI
     /// In theory this class can be mounted on any GameObject that will never be destroyed.
     /// </summary>
     [DisallowMultipleComponent]
-    public class RadiacEnvironment : MonoBehaviour
+    public sealed class RadiacEnvironment : MonoBehaviour
     {
         public static RadiacEnvironment instance;
         public static Action RadiacUpdates;
         public static Action RadiacFixedUpdates;
         
-        void Start()
+        void Awake()
         {
             if(instance != null) Debug.LogWarning("Radiac Environment replaced.");
             
             instance = this;
+            
+            // Static initialization are placed here.
+            
+            LocalizationSupport.LoadLocalizationFile();
+            
+            RadiacUpdates = () => { };
+            RadiacFixedUpdates = () => { };
         }
         
         void Update()

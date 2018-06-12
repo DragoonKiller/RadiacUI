@@ -22,7 +22,7 @@ namespace  RadiacUI
         
         void Update()
         {
-            // Notice:
+            // TODO...
             // Is is a good idea to get string every frame?
             SyncText();
         }
