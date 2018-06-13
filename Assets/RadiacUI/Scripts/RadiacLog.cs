@@ -22,12 +22,12 @@ namespace RadiacUI
         
         public static void AddWarning(object s)
         {
-            Debug.LogWarning(s);
+            Log.AddWarning(s);
         }
         
         public static void AddWarningFormat(string s, params object[] args)
         {
-            Debug.LogWarningFormat(s, args);
+            Log.AddWarningFormat(s, args);
         }
     }
     

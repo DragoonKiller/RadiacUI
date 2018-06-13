@@ -30,7 +30,7 @@ namespace  RadiacUI
             base.Update();
             
             // TODO...
-            // Is is a good idea to get string every frame?
+            // Is it a good idea to get string every frame?
             SyncText();
         }
     }

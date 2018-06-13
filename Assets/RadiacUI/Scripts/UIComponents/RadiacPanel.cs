@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace RadiacUI
 {
@@ -12,16 +13,16 @@ namespace RadiacUI
     {
         internal static readonly HashSet<RadiacPanel> all = new HashSet<RadiacPanel>();
         
+        public string[] signalMouseScroll;
         public string[] signalMouseEnter;
         public string[] signalMouseLeave;
-        public string[] signalMouseHover;
         public string[] signalMouseMove;
         
         Vector2 lastCursorPos;
         
         protected RadiacAuxiliaryArea[] aux { get { return this.gameObject.GetComponents<RadiacAuxiliaryRect>(); } }
         protected RectTransform tr { get { return this.gameObject.GetComponent<RectTransform>(); } }
-        [SerializeField] bool useBaseRect = true;
+        public bool useBaseRect = true;
         
         /// <summary>
         /// True IFF cursor is pointing to this object or at least one of this object's children.
@@ -53,6 +54,11 @@ namespace RadiacUI
         {
             base.Update();
             
+            if(cursorHovering && VirtualCursor.scrolling)
+            {
+                SignalManager.EmitSignal(signalMouseScroll);
+            }
+            
             if(cursorHovering && !trigLast)
             {
                 SignalManager.EmitSignal(signalMouseEnter);
@@ -65,8 +71,6 @@ namespace RadiacUI
             
             if(cursorHovering || trigLast)
             {
-                SignalManager.EmitSignal(signalMouseHover);
-                
                 if(VirtualCursor.position != lastCursorPos)
                 {
                     SignalManager.EmitSignal(signalMouseMove);
@@ -84,25 +88,41 @@ namespace RadiacUI
         internal bool IsPointInsidePanel(Vector2 pos)
         {
             bool x = false;
+            
+            // Union behaviour:
+            // Available if at least one xxxArea contains the point.
             if(useBaseRect) x |= tr.rect.Transform(tr.position).Contains(pos);
             if(aux != null) foreach(var i in aux) x |= i.IsPointInside(pos);
+            
+            // Intersect behaviour:
+            // Available if and only if all masks contains the point.
+            if(x)
+            {
+                foreach(var i in this.transform.FindComponentsInParents<RadiacMaskArea>())
+                {
+                    bool takeAccount = false;
+                    takeAccount |= i.maskType == RadiacMaskArea.MaskType.AllChildren;
+                    takeAccount |= i.maskType == RadiacMaskArea.MaskType.DirectChildrenOnly && i.transform == this.transform.parent;
+                    if(takeAccount && !i.IsPointInside(pos))
+                    {
+                        x = false;
+                        break;
+                    }
+                }
+            }
+            
             return x;
         }
         
-        public void OnDrawGizmosSelected()
-        {
-            if(useBaseRect) RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon);
-        }
-        
         // ============================================================================================================
-        // ============================================================================================================
+        // global static functions.
         // ============================================================================================================
         
         public static void InitUpdator()
         {
             if(listenerAssigned)
             {
-                Debug.LogWarning("Radiac Panel's updator re-inited!");
+                Log.AddWarning("Radiac Panel's updator re-inited!");
             }
             
             RadiacEnvironment.RadiacUpdates += UpdateCursorHovering;
@@ -138,6 +158,32 @@ namespace RadiacUI
             }
         }
         
+        // ============================================================================================================
+        // Editor Auxiliary
+        // ============================================================================================================
+        
+        
+        public void OnDrawGizmosSelected()
+        {
+            if(useBaseRect)
+            {
+                RadiacUtility.DrawRectangleGizmos(tr.rect.Transform(tr.position), tr.position.z + float.Epsilon, Color.red);
+            }
+            
+            if(Selection.activeGameObject != transform.gameObject) return;
+            
+            // Draw masks which limit this panel's reaction.
+            foreach(var i in this.transform.FindComponentsInParents<RadiacMaskArea>())
+            {
+                bool takeAccount = false;
+                takeAccount |= i.maskType == RadiacMaskArea.MaskType.AllChildren;
+                takeAccount |= i.maskType == RadiacMaskArea.MaskType.DirectChildrenOnly && i.transform == this.transform.parent;
+                if(takeAccount)
+                {
+                    i.CustomDrawGizmos();
+                }
+            }
+        }
         
     }
 }

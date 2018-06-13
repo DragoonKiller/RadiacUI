@@ -53,7 +53,7 @@ namespace RadiacUI
             if(listeners.ContainsKey(x))
                 foreach(var action in listeners[x]) action(); // Instant callback.
             else
-                Log.AddWarningFormat("Can not find signal: {0}", x);
+                Log.AddWarningFormat("Can not find receiver for signal: {0}, check typo and so on.", x);
         }
         
         public static void AddSignalCallback(Signal x, Action action)

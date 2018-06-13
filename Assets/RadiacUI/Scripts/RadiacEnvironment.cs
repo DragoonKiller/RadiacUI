@@ -16,7 +16,7 @@ namespace RadiacUI
         
         void Awake()
         {
-            if(instance != null) Debug.LogWarning("Radiac Environment replaced.");
+            if(instance != null) Log.AddWarning("Radiac Environment replaced.");
             
             instance = this;
             
@@ -28,6 +28,8 @@ namespace RadiacUI
             LocalizationSupport.LoadLocalizationFile();
             
             RadiacPanel.InitUpdator();
+            VirtualCamera.Init();
+            VirtualCursor.Init();
         }
         
         void Update()

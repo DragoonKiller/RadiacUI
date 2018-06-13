@@ -32,7 +32,7 @@ namespace RadiacUI
         public static Vector2 size { get; private set; }
         
         
-        static VirtualCamera()
+        public static void Init()
         {
             RadiacEnvironment.RadiacUpdates += () =>
             {

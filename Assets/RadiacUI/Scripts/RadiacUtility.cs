@@ -36,7 +36,7 @@ namespace RadiacUI
             where RetType : ICollection<T>, new()
         {
             RetType res = new RetType();
-            foreach(var i in src) res.Add(i);
+            foreach(var i in src) if(f(i)) res.Add(i);
             return res;
         }
         
@@ -124,6 +124,16 @@ namespace RadiacUI
     // ================================================================================================================
     internal static class RadiacUtility
     {
+        internal static Rect? Intersect(this Rect rect, Rect other)
+        {
+            float wr = Mathf.Min(rect.xMax, other.xMax);
+            float wl = Mathf.Max(rect.xMin, other.xMin);
+            float ht = Mathf.Min(rect.yMax, other.yMin);
+            float hb = Mathf.Max(rect.yMin, other.yMin);
+            if(wr < wl || ht < hb) return null;
+            return new Rect(wl, hb, wr - wl, ht - hb);
+        }
+        
         internal static Rect Transform(this Rect rect, Vector2 pos)
         {
             return new Rect(rect.x + pos.x, rect.y + pos.y, rect.width, rect.height);
@@ -152,16 +162,46 @@ namespace RadiacUI
             return false;
         }
         
-        internal static void DrawRectangleGizmos(Rect rect, float h)
+        internal static void DrawRectangleGizmos(Rect rect, float h, Color c)
         {
             var bottomLeft = new Vector3(rect.xMin, rect.yMin, h);
             var bottomRight = new Vector3(rect.xMax, rect.yMin, h);
             var topLeft = new Vector3(rect.xMin, rect.yMax, h);
             var topRight = new Vector3(rect.xMax, rect.yMax, h);
-            Debug.DrawLine(bottomLeft, bottomRight, Color.red);
-            Debug.DrawLine(topLeft, topRight, Color.red);
-            Debug.DrawLine(bottomLeft, topLeft, Color.red);
-            Debug.DrawLine(bottomRight, topRight, Color.red);
+            Debug.DrawLine(bottomLeft, bottomRight, c);
+            Debug.DrawLine(topLeft, topRight, c);
+            Debug.DrawLine(bottomLeft, topLeft, c);
+            Debug.DrawLine(bottomRight, topRight, c);
+        }
+        
+        internal static T FindComponentInParents<T>(this Transform cur) where T : MonoBehaviour
+        {
+            if(cur == null) return null;
+            return _FindComponentInParents<T>(cur.parent);
+        }
+        
+        static T _FindComponentInParents<T>(Transform cur) where T : MonoBehaviour
+        {
+            if(cur == null) return null;
+            var x = cur.GetComponent<T>();
+            if(x != null) return x;
+            return _FindComponentInParents<T>(cur.parent);
+        }
+        
+        internal static T[] FindComponentsInParents<T>(this Transform cur) where T : MonoBehaviour
+        {
+            if(cur == null) return new T[0];
+            List<T> res = new List<T>();
+            _FindComponentsInParents<T>(cur.parent, res);
+            return res.ToArray();
+        }
+        
+        internal static void _FindComponentsInParents<T>(Transform cur, List<T> res) where T : MonoBehaviour
+        {
+            if(cur == null) return;
+            var x = cur.GetComponent<T>();
+            if(x != null) res.Add(x);
+            _FindComponentsInParents(cur.parent, res);
         }
         
         

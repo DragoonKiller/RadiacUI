@@ -18,7 +18,7 @@ namespace RadiacUI
         RadiacUIImage parent { get { return this.gameObject.transform.parent.gameObject.GetComponent<RadiacUIImage>(); } }
         
         public float selfTransparency;
-        public float transparency { get { return (parent == null ? 1.0f : parent.transparency) * selfTransparency;  } }
+        public float transparency { get { return (parent == null ? 1.0f : parent.transparency) * selfTransparency; } }
         
         void Start()
         {
@@ -27,6 +27,9 @@ namespace RadiacUI
         
         void Update()
         {
+            // TODO: the transparency looks weird.
+            // Maybe it depends on how pictures are served.
+            
             float step = fadeSpeed * Time.deltaTime;
             selfTransparency = Mathf.Clamp(selfTransparency + (uiBase.active ? 1 : -1) * step, 0f, 1.0f);
             image.color = new Color(image.color.r, image.color.g, image.color.b, transparency);

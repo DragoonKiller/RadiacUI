@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace RadiacUI
 {
     [DisallowMultipleComponent]
-    public class RadiacUIComponent : SignalReceiver
+    public abstract class RadiacUIComponent : SignalReceiver
     {
         [SerializeField] bool _selfActive;
         public bool selfActive
@@ -32,6 +32,8 @@ namespace RadiacUI
         public bool active { get { return selfActive && (parent == null || parent.active); } }
         
         RadiacUIComponent parent = null;
+        
+        public int depth { get { return parent == null ? 1 : parent.depth + 1; } }
         
         public string[] signalActive;
         public string[] signalDeactive;

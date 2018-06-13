@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RadiacUI
 {
     /// <summary>
-    /// Auxiliary rect make responsers possible to react with non-rectangle area.
+    /// Mask for reaction purpose.
     /// </summary>
     [RequireComponent(typeof(RadiacUIComponent))]
-    public abstract class RadiacAuxiliaryArea : MonoBehaviour
+    public abstract class RadiacMaskArea : MonoBehaviour
     {
+        [SerializeField]
+        public enum MaskType
+        {
+            DirectChildrenOnly = 1,
+            AllChildren = 2
+        }
+        
+        public MaskType maskType = MaskType.DirectChildrenOnly;
         public abstract bool IsPointInside(Vector2 point);
         
         /// <summary>
@@ -15,5 +25,4 @@ namespace RadiacUI
         /// </summary>
         public virtual void CustomDrawGizmos() { }
     }
-    
 }

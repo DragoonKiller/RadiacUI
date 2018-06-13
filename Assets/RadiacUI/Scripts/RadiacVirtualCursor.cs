@@ -33,9 +33,25 @@ namespace RadiacUI
             }
         }
         
-        static VirtualCursor()
+        public static bool scrolling
         {
-            
+            get
+            {
+                return Input.mouseScrollDelta.y != 0.0f;
+            }
+        }
+        
+        public static float scrollValue
+        {
+            get
+            {
+                return Input.mouseScrollDelta.y;
+            }
+        }
+        
+        public static void Init()
+        {
+            // do nothing yet...
         }
     }
     

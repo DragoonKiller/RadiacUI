@@ -12,7 +12,6 @@ namespace RadiacUI
     public class RadiacButton : RadiacPanel
     {
         public string[] signalMouseClick;
-        public string[] signalMousePressing;
         public string[] signalMouseRelease;
         
         protected override void Update()
@@ -22,13 +21,6 @@ namespace RadiacUI
             if(cursorHovering && Input.GetMouseButtonDown(0))
             {
                 SignalManager.EmitSignal(signalMouseClick);
-            }
-            
-            if(cursorHovering && Input.GetMouseButton(0))
-            {
-                // This signal will call once per frame.
-                // use it wisely.
-                SignalManager.EmitSignal(signalMousePressing);
             }
             
             if(cursorHovering && Input.GetMouseButtonUp(0))
