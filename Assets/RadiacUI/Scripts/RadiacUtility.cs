@@ -204,7 +204,31 @@ namespace RadiacUI
             _FindComponentsInParents(cur.parent, res);
         }
         
+        internal static Color SetR(this Color c, float r) => new Color(r, c.g, c.b, c.a);
+        internal static Color SetG(this Color c, float g) => new Color(c.r, g, c.b, c.a);
+        internal static Color SetB(this Color c, float b) => new Color(c.r, c.g, b, c.a);
+        internal static Color SetA(this Color c, float a) => new Color(c.r, c.g, c.b, a);
         
+        internal static Vector2 SetX(this Vector2 v, float x) => new Vector2(x, v.y);
+        internal static Vector2 SetY(this Vector2 v, float y) => new Vector2(v.x, y);
+        
+        internal static Vector3 SetX(this Vector3 v, float x) => new Vector3(x, v.y, v.z);
+        internal static Vector3 SetY(this Vector3 v, float y) => new Vector3(v.x, y, v.z);
+        internal static Vector3 SetZ(this Vector3 v, float z) => new Vector3(v.x, v.y, z);
+        
+        internal static Vector4 SetX(this Vector4 v, float x) => new Vector4(x, v.y, v.z, v.w);
+        internal static Vector4 SetY(this Vector4 v, float y) => new Vector4(v.x, y, v.z, v.w);
+        internal static Vector4 SetZ(this Vector4 v, float z) => new Vector4(v.x, v.y, z, v.w);
+        internal static Vector4 SetW(this Vector4 v, float w) => new Vector4(v.x, v.y, v.z, w);
+        
+        internal static Vector2 Clamp(this Vector2 v, Vector2 l, Vector2 u)
+            => new Vector2(Mathf.Clamp(v.x, l.x, u.x), Mathf.Clamp(v.y, l.y, u.y));
+        internal static Vector3 Clamp(this Vector3 v, Vector3 l, Vector3 u)
+            => new Vector3(Mathf.Clamp(v.x, l.x, u.x), Mathf.Clamp(v.y, l.y, u.y), Mathf.Clamp(v.z, l.z, u.z));
+        internal static Vector4 Clamp(this Vector4 v, Vector4 l, Vector4 u)
+            => new Vector4(Mathf.Clamp(v.x, l.x, u.x), Mathf.Clamp(v.y, l.y, u.y), Mathf.Clamp(v.z, l.z, u.z), Mathf.Clamp(v.w, l.w, u.w));
+        internal static Color Clamp(this Color v, Color l, Color u)
+            => new Color(Mathf.Clamp(v.r, l.r, u.r), Mathf.Clamp(v.g, l.g, u.g), Mathf.Clamp(v.b, l.b, u.b), Mathf.Clamp(v.a, l.a, u.a));
     }
     
     

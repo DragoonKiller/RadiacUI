@@ -35,11 +35,11 @@ This is a simple (but powerful) UGUI enhancement that provides features supporti
 [-] Font and string management.  
 [ ] Other visiable UI-related resources management (like pictures for UI, but not for game scenes).  
 
-* Preset Components :
+* Preset Components :  
 [x] Response Area extension (interface).  
 [x] Button  
 [x] Image  
 [x] Label and Text  
-[-] Scroll Area  
+[x] Scroll Area  
+[x] Editing box  
 [ ] Progress Bar  
-[ ] Editing box  

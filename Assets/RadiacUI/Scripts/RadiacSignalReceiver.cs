@@ -11,6 +11,8 @@ namespace RadiacUI
         
         protected void AddCallback(Signal x, Action action)
         {
+            if(x.value == "") return; // do nothing for empty string.
+            
             actionList.Add(x, action);
             SignalManager.AddSignalCallback(x, action);
         }

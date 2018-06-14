@@ -6,7 +6,8 @@ using UnityEditor;
 namespace RadiacUI
 {
     /// <summary>
-    /// the Panel is the basic components that interacts with mouse input.
+    /// the Panel is the basic components that interacts with inputs,
+    /// including mouse input and keyboard input.
     /// </summary>
     [RequireComponent(typeof(RectTransform))]
     public class RadiacPanel : RadiacUIComponent
@@ -115,10 +116,11 @@ namespace RadiacUI
         }
         
         // ============================================================================================================
-        // global static functions.
+        // Global static functions...
         // ============================================================================================================
         
-        public static void InitUpdator()
+        static bool listenerAssigned = false;
+        public static void GlobalInit()
         {
             if(listenerAssigned)
             {
@@ -132,7 +134,6 @@ namespace RadiacUI
         /// <summary>
         /// To build up a listener monitoring cursorHovering property, a static method will be assigned in Start().
         /// </summary>
-        static bool listenerAssigned = false;
         static void UpdateCursorHovering()
         {
             // Find what the cursor hits.
@@ -159,7 +160,7 @@ namespace RadiacUI
         }
         
         // ============================================================================================================
-        // Editor Auxiliary
+        // Editor Auxiliary...
         // ============================================================================================================
         
         

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace RadiacUI
 {
     [DisallowMultipleComponent]
-    public abstract class RadiacUIComponent : SignalReceiver
+    public class RadiacUIComponent : SignalReceiver
     {
         [SerializeField] bool _selfActive;
         public bool selfActive
@@ -28,7 +28,6 @@ namespace RadiacUI
         public Action activeCallback = () => { };
         public Action deactiveCallback = () => { };
         
-        
         public bool active { get { return selfActive && (parent == null || parent.active); } }
         
         RadiacUIComponent parent = null;
@@ -44,19 +43,19 @@ namespace RadiacUI
         
         protected virtual void Start()
         {
-            if(switchSignal != "") AddCallback(new Signal(switchSignal), () => selfActive = !selfActive);
+            AddCallback(new Signal(switchSignal), () => selfActive = !selfActive);
             
             if(signalActive.Contains(activeSignal))
             {
                 throw new ArgumentException("Signal When Active should not contains Active Signal.");
             }
-            if(activeSignal != "") AddCallback(new Signal(activeSignal), () => selfActive = true);
+            AddCallback(new Signal(activeSignal), () => selfActive = true);
             
             if(signalDeactive.Contains(deactiveSignal))
             {
                 throw new ArgumentException("Signal When Deactive should not contains Deactive Signal.");
             }
-            if(deactiveSignal != "") AddCallback(new Signal(deactiveSignal), () => selfActive = false);
+            AddCallback(new Signal(deactiveSignal), () => selfActive = false);
             
             activeCallback += () => SignalManager.EmitSignal(signalActive);
             deactiveCallback += () => SignalManager.EmitSignal(signalDeactive);
@@ -67,7 +66,7 @@ namespace RadiacUI
                 parent = par.GetComponent<RadiacUIComponent>();
                 if(parent == null)
                 {
-                    throw new Exception("A UI Window must be attached to Canvas directly or has a parent mounted with UI Window.");
+                    throw new Exception("A UI Component must be attached to Canvas directly or has a parent mounted with UI Component.");
                 }
             }
         }

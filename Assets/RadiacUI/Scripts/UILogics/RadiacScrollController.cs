@@ -31,7 +31,6 @@ namespace RadiacUI
         protected override void Start()
         {
             base.Start();
-            Check();
         }
         
         /// <summary>
@@ -71,42 +70,6 @@ namespace RadiacUI
                 }
             }
         }
-        
-        
-        void Check()
-        {
-            foreach(var i in subs)
-            {
-                if(i.useBaseRect)
-                {
-                    Log.AddWarning(warningUsingBaseRect);
-                }
-                
-                RadiacAuxiliaryRect[] auxiliaryArea = i.gameObject.GetComponents<RadiacAuxiliaryRect>();
-                
-                if(auxiliaryArea.Length == 0)
-                {
-                    Log.AddWarning(warningNoAuxArea);
-                }
-                
-                if( auxiliaryArea.Length > 1)
-                {
-                    Log.AddWarning(warningTooManyAuxArea);
-                }
-            }
-        }
-        
-        // ================================================================================================================
-        // ================================================================================================================
-        // ================================================================================================================
-        
-        const string warningUsingBaseRect =
-            "Setting sub-panel to use base rect may cause improper behaviour. use auxiliaryRect instead.";
-        const string warningNoAuxArea =
-            "There must be an auxiliary rectangle in sub-panel to locate the mouse.";
-        const string warningTooManyAuxArea =
-            "There must be exactly one auxliary rect in sub-panel so that the area can be preserved properly.";
-        
         
     }
     

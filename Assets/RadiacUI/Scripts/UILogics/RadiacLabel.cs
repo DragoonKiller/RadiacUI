@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace  RadiacUI
 {
     [RequireComponent(typeof(Text))]
-    public class RadiacText : RadiacUIComponent
+    public class RadiacLabel : RadiacUIComponent
     {
         public string requestString;
         

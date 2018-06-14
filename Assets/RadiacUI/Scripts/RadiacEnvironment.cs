@@ -27,9 +27,10 @@ namespace RadiacUI
             
             LocalizationSupport.LoadLocalizationFile();
             
-            RadiacPanel.InitUpdator();
+            RadiacPanel.GlobalInit();
             VirtualCamera.Init();
             VirtualCursor.Init();
+            RadiacInputController.Init();
         }
         
         void Update()

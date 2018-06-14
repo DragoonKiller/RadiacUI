@@ -8,14 +8,17 @@ namespace RadiacUI
     [RequireComponent(typeof(Graphic))]
     [RequireComponent(typeof(RadiacUIComponent))]
     [DisallowMultipleComponent]
-    public sealed class RadiacUIImage : MonoBehaviour
+    public sealed class RadiacDisplayController : MonoBehaviour
     {
+        /// <summary>
+        /// The base color property provides a way to modify color outside.
+        /// </summary>
         public Color baseColor = Color.white;
-        public float fadeSpeed;
+        public float fadeSpeed = 1.0f;
         
         Graphic image { get { return this.gameObject.GetComponent<Graphic>(); } }
         RadiacUIComponent uiBase { get { return this.gameObject.GetComponent<RadiacUIComponent>(); } }
-        RadiacUIImage parent { get { return this.gameObject.transform.parent.gameObject.GetComponent<RadiacUIImage>(); } }
+        RadiacDisplayController parent { get { return this.gameObject.transform.parent.gameObject.GetComponent<RadiacDisplayController>(); } }
         
         public float selfTransparency;
         public float transparency { get { return (parent == null ? 1.0f : parent.transparency) * selfTransparency; } }
@@ -32,7 +35,7 @@ namespace RadiacUI
             
             float step = fadeSpeed * Time.deltaTime;
             selfTransparency = Mathf.Clamp(selfTransparency + (uiBase.active ? 1 : -1) * step, 0f, 1.0f);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, transparency);
+            image.color = baseColor * new Color(image.color.r, image.color.g, image.color.b, transparency);
         }
     }
 }
