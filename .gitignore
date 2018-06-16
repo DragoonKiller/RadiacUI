@@ -33,6 +33,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.exe
+*.dll
+test_Data/
 
 # VSCode
 .vscode/

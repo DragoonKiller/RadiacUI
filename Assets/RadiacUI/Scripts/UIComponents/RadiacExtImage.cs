@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace RadiacUI
 {
@@ -11,13 +14,17 @@ namespace RadiacUI
         protected override void Awake()
         {
             base.Awake();
+            #if UNITY_EDITOR
             RadiacExtImageAuxiliary.extImages.Add(this);
+            #endif
             material = new Material(Shader.Find("RadiacUI/ExtendableWidget")); 
         }
         
         protected override void OnDestroy()
         {
+            #if UNITY_EDITOR
             RadiacExtImageAuxiliary.extImages.Remove(this);
+            #endif
         }
         
         /// <summary>
@@ -52,6 +59,8 @@ namespace RadiacUI
         }
     }
     
+    #if UNITY_EDITOR
+    
     [InitializeOnLoad]
     internal static class RadiacExtImageAuxiliary
     {
@@ -74,5 +83,7 @@ namespace RadiacUI
             }
         }
     }
+    
+    #endif // UNITY_EDITOR
     
 }

@@ -12,7 +12,8 @@ namespace RadiacUI
         {
             get
             {
-                return new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                return new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+                    .Clamp(Vector2.zero, new Vector2(Screen.width - 1, Screen.height - 1));
             }
         }
         

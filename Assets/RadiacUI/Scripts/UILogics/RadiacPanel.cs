@@ -1,7 +1,10 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace RadiacUI
 {
@@ -163,6 +166,7 @@ namespace RadiacUI
         // Editor Auxiliary...
         // ============================================================================================================
         
+        #if UNITY_EDITOR
         
         public void OnDrawGizmosSelected()
         {
@@ -185,6 +189,8 @@ namespace RadiacUI
                 }
             }
         }
+        
+        #endif
         
     }
 }

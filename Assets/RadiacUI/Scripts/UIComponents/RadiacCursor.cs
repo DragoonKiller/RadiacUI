@@ -11,14 +11,16 @@ namespace RadiacUI
     {
         protected virtual void Start()
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Confined;
+            // Cursor.visible = false;
+            
+            QualitySettings.vSyncCount = 0;
         }
         
         protected virtual void OnDestroy()
         {
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            // Cursor.visible = true;
         }
         
         protected virtual void Update()
