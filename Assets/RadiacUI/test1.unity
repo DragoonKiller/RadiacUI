@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1501067128}
+  m_Material: {fileID: 568445759}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -434,7 +434,7 @@ RectTransform:
   - {fileID: 1921166316}
   - {fileID: 386388445}
   - {fileID: 1810961573}
-  - {fileID: 1012955276}
+  - {fileID: 1909309830}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -576,6 +576,40 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   fadeSpeed: 8
   selfTransparency: 0
+--- !u!21 &342860834
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: RadiacUI/ExtendableWidget
+  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
+  m_ShaderKeywords: UNITY_UI_CLIP_RECT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DrawRect: {r: 777.8, g: 774.5, b: 100, a: 100}
+    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &386388444
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +737,7 @@ MonoBehaviour:
     y: 200
     width: 60
     height: 200
---- !u!21 &478466145
+--- !u!21 &475044972
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -735,7 +769,7 @@ Material:
     - _UseUIAlphaClip: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 774.5, b: 100, a: 100}
+    - _DrawRect: {r: 777.8, g: 474.5, b: 100, a: 100}
     - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &534044575
 GameObject:
@@ -846,6 +880,40 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   fadeSpeed: 8
   selfTransparency: 0
+--- !u!21 &568445759
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: RadiacUI/ExtendableWidget
+  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DrawRect: {r: 777.8, g: 24.5, b: 100, a: 100}
+    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &581858593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1193,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c01dc053eb2ab4f9fa9ed754f47861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &860292330
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: RadiacUI/ExtendableWidget
+  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
+  m_ShaderKeywords: UNITY_UI_CLIP_RECT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DrawRect: {r: 777.8, g: 624.5, b: 100, a: 100}
+    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &891771340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 478466145}
+  m_Material: {fileID: 342860834}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -1440,40 +1542,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 943955476}
---- !u!21 &971135364
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: RadiacUI/ExtendableWidget
-  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
-  m_ShaderKeywords: UNITY_UI_CLIP_RECT
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 324.5, b: 100, a: 100}
-    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &995092309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1211552453}
+  m_Material: {fileID: 1015243145}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -1579,85 +1647,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 995092309}
---- !u!1 &1012955275
-GameObject:
+--- !u!21 &1015243145
+Material:
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1012955276}
-  - component: {fileID: 1012955277}
-  - component: {fileID: 1012955279}
-  - component: {fileID: 1012955278}
-  m_Layer: 5
-  m_Name: Cursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1012955276
-RectTransform:
+  m_Name: RadiacUI/ExtendableWidget
+  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
+  m_ShaderKeywords: UNITY_UI_CLIP_RECT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DrawRect: {r: 777.8, g: 174.5, b: 100, a: 100}
+    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
+--- !u!21 &1076395228
+Material:
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012955275}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
-  m_Father: {fileID: 185419645}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1012955277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012955275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee63abd901125f744991c89398c62bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1012955278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012955275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.2616782, g: 0.5778578, b: 0.8897059, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 319a073a54d820243a6e1fbfb4344277, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1012955279
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012955275}
+  m_Name: RadiacUI/ExtendableWidget
+  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
+  m_ShaderKeywords: UNITY_UI_CLIP_RECT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DrawRect: {r: 777.8, g: 324.5, b: 100, a: 100}
+    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &1093369776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1658492421}
+  m_Material: {fileID: 860292330}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -1994,40 +2051,6 @@ MonoBehaviour:
     y: -130
     width: 100
     height: 50
---- !u!21 &1211552453
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: RadiacUI/ExtendableWidget
-  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
-  m_ShaderKeywords: UNITY_UI_CLIP_RECT
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 174.5, b: 100, a: 100}
-    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &1466894327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,7 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 971135364}
+  m_Material: {fileID: 1076395228}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -2241,40 +2264,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1474737559}
---- !u!21 &1501067128
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: RadiacUI/ExtendableWidget
-  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 24.5, b: 100, a: 100}
-    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &1514680865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89f542e4812bef4fb5c16b0076450f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2013527498}
+  m_Material: {fileID: 475044972}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -2598,40 +2587,6 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   fadeSpeed: 8
   selfTransparency: 0
---- !u!21 &1658492421
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: RadiacUI/ExtendableWidget
-  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
-  m_ShaderKeywords: UNITY_UI_CLIP_RECT
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 624.5, b: 100, a: 100}
-    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &1692673348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +2824,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1909309829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1909309830}
+  - component: {fileID: 1909309833}
+  - component: {fileID: 1909309832}
+  - component: {fileID: 1909309831}
+  m_Layer: 5
+  m_Name: Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1909309830
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909309829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185419645}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1909309831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909309829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee63abd901125f744991c89398c62bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1909309832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909309829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.41911763, g: 0.6875254, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 319a073a54d820243a6e1fbfb4344277, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1909309833
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909309829}
 --- !u!1 &1921166315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,40 +2997,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1921166315}
---- !u!21 &2013527498
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: RadiacUI/ExtendableWidget
-  m_Shader: {fileID: 4800000, guid: 6ae3927f9d4f8194dbee3c43408f53fa, type: 3}
-  m_ShaderKeywords: UNITY_UI_CLIP_RECT
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DrawRect: {r: 777.8, g: 474.5, b: 100, a: 100}
-    - _ScreenSize: {r: 1026, g: 919, b: 0, a: 0}
 --- !u!1 &2056662418
 GameObject:
   m_ObjectHideFlags: 0
