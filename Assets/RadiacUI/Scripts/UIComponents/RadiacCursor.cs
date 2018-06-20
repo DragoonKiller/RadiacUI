@@ -9,16 +9,25 @@ namespace RadiacUI
     /// </summary>
     public class RadiacCursor : MonoBehaviour
     {
+        public static RadiacCursor inst;
+        
+        protected virtual void Awake()
+        {
+            inst = this;
+        }
+        
+        public float speedMult = 5.0f;
+        
         protected virtual void Start()
         {
-            // Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             QualitySettings.vSyncCount = 0;
         }
         
         protected virtual void OnDestroy()
         {
-            // Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         
