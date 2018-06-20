@@ -16,7 +16,7 @@ namespace RadiacUI
             inst = this;
         }
         
-        public float speedMult = 5.0f;
+        public float speedMult = 15.0f;
         
         protected virtual void Start()
         {

@@ -36,8 +36,8 @@ namespace RadiacUI
         
         public int depth { get { return parent == null ? 1 : parent.depth + 1; } }
         
-        public string signalActive = "";
-        public string signalDeactive = "";
+        public string emitActive = "";
+        public string emitDeactive = "";
         
         public string switchSignal = "";
         public string activeSignal = "";
@@ -45,28 +45,28 @@ namespace RadiacUI
         
         protected virtual void Start()
         {
-            signalActive = ParseRequest(signalActive);
-            signalDeactive = ParseRequest(signalDeactive);
+            emitActive = ParseRequest(emitActive);
+            emitDeactive = ParseRequest(emitDeactive);
             switchSignal = ParseRequest(switchSignal);
             activeSignal = ParseRequest(activeSignal);
             deactiveSignal = ParseRequest(deactiveSignal);
             
             AddCallback(new Signal(switchSignal), () => selfActive = !selfActive);
             
-            if(signalActive != "" && signalActive.Contains(activeSignal))
+            if(emitActive != "" && emitActive.Contains(activeSignal))
             {
                 throw new ArgumentException("Signal When Active should not contains Active Signal.");
             }
             AddCallback(new Signal(activeSignal), () => selfActive = true);
             
-            if(signalDeactive != "" && signalDeactive.Contains(deactiveSignal))
+            if(emitDeactive != "" && emitDeactive.Contains(deactiveSignal))
             {
                 throw new ArgumentException("Signal When Deactive should not contains Deactive Signal.");
             }
             AddCallback(new Signal(deactiveSignal), () => selfActive = false);
             
-            activeCallback += () => SignalManager.EmitSignal(signalActive);
-            deactiveCallback += () => SignalManager.EmitSignal(signalDeactive);
+            activeCallback += () => SignalManager.EmitSignal(emitActive);
+            deactiveCallback += () => SignalManager.EmitSignal(emitDeactive);
             
             if(parent == null && this.transform.parent.GetComponent<Canvas>() == null)
             {
@@ -99,6 +99,4 @@ namespace RadiacUI
             return obj.elementName + request.Substring(cnt - 1);
         }
     }
-    
-    
 }
