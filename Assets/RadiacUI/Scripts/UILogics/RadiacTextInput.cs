@@ -16,11 +16,17 @@ namespace RadiacUI
         RectTransform rectTransform { get { return this.gameObject.GetComponent<RectTransform>(); } }
         TextGenerator gen { get { return text.cachedTextGenerator; } }
         
+        int totalLength { get { return text.text.Length; } }
+        
         [SerializeField] Material caretMaterial;
         [SerializeField] Image caret;
         [SerializeField] float caretWidth;
         [SerializeField] AnimationCurve caretAlphaCurve;
         [SerializeField] float caretBlinkSpeedMult = 1.0f;
+        
+        [SerializeField] bool shift;
+        [SerializeField] bool ctrl;
+        [SerializeField] bool alt;
         
         /// <summary>
         /// Caret position of the whole string.
@@ -46,13 +52,17 @@ namespace RadiacUI
             base.Start();
         }
         
-        public override void ReceiveOperator(InputOperator op)
+        public override void ReceiveOperator(KeyCode op)
         {
             switch(op)
             {
-                case InputOperator.Backspace:
+                case KeyCode.Backspace:
                 {
-                    if(text.text.Length != 0)
+                    // TODO:
+                    // Word remove.
+                    // Needs word segmentation.
+                    
+                    if(totalLength != 0)
                     {
                         if(caretPos != 0)
                         {
@@ -63,19 +73,19 @@ namespace RadiacUI
                     break;
                 }
                 
-                case InputOperator.MoveLeft:
+                case KeyCode.LeftArrow:
                 {
                     caretPos = Mathf.Max(0, caretPos - 1);
                     break;
                 }
                 
-                case InputOperator.MoveRight:
+                case KeyCode.RightArrow:
                 {
-                    caretPos = Mathf.Min(text.text.Length, caretPos + 1);
+                    caretPos = Mathf.Min(totalLength, caretPos + 1);
                     break;
                 }
                 
-                case InputOperator.MoveUp:
+                case KeyCode.UpArrow:
                 {
                     if(caretLine == 0)
                     {
@@ -83,26 +93,34 @@ namespace RadiacUI
                     }
                     else
                     {
-                        caretPos -= gen.lines[caretLine].startCharIdx - gen.lines[caretLine-1].startCharIdx;
+                        var indexInLine = caretPos - gen.lines[caretLine].startCharIdx;
+                        caretPos = Math.Min(gen.lines[caretLine-1].startCharIdx + indexInLine, gen.lines[caretLine].startCharIdx-1);
                     }
                     break;
                 }
                 
-                case InputOperator.MoveDown:
+                case KeyCode.DownArrow:
                 {
                     if(caretLine == gen.lines.Count - 1)
                     {
-                        caretPos = text.text.Length;
+                        caretPos = totalLength;
                     }
                     else
                     {
-                        caretPos += gen.lines[caretLine+1].startCharIdx - gen.lines[caretLine].startCharIdx;
-                        caretPos = Mathf.Min(caretPos, text.text.Length);
+                        var indexInLine = caretPos - gen.lines[caretLine].startCharIdx;
+                        if(caretLine+2 < gen.lineCount)
+                        {
+                            caretPos = Math.Min(gen.lines[caretLine+1].startCharIdx + indexInLine, gen.lines[caretLine+2].startCharIdx - 1);
+                        }
+                        else
+                        {
+                            caretPos = Math.Min(gen.lines[caretLine+1].startCharIdx + indexInLine, totalLength);
+                        }
                     }
                     break;
                 }
                 
-                case InputOperator.LineBreak:
+                case KeyCode.Return:
                 {
                     text.text = text.text.Insert(caretPos, "\n");
                     caretPos++;
@@ -113,10 +131,18 @@ namespace RadiacUI
             }
         }
         
-        public override void ReceiveChar(bool ctrl, bool shift, bool alt, char c)
+        public override void ReceiveChar(char c)
         {
-            if(shift) c = char.ToUpper(c);
+            if(RadiacInputController.shift)
+                c = char.ToUpper(c);
+            else
+                c = char.ToLower(c);
+            
+            // TODO:
+            // Optimize.
+            // Should be implemented using a specific data structure which implements IList<char>...
             text.text = text.text.Insert(caretPos, c.ToString());
+            
             caretPos++;
         }
         
@@ -128,7 +154,11 @@ namespace RadiacUI
         
         public void DrawCaret()
         {
+            // TODO:
+            // Is this really a good place to run this?
             gen.Populate(text.text, text.GetGenerationSettings(rectTransform.rect.size));
+            
+            
             var rect = GetCaretRect(caretPos, caretLine);
             caret.rectTransform.sizeDelta = rect.size;
             caret.rectTransform.position = new Vector3(rect.center.x, rect.center.y, caret.rectTransform.position.y);
