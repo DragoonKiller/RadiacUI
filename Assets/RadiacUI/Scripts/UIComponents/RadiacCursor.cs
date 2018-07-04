@@ -47,17 +47,17 @@ namespace RadiacUI
         
         bool focused = false;
         
-        void Start()
+        protected virtual void Start()
         {
             focused = true;
         }
         
-        void OnDestroy()
+        protected virtual void OnDestroy()
         {
             Cursor.visible = true;
         }
         
-        void Update()
+        protected virtual void Update()
         {
             Cursor.visible = false;
             
@@ -84,7 +84,7 @@ namespace RadiacUI
             this.gameObject.transform.position = VirtualCursor.position;
         }
         
-        void OnApplicationFocus(bool isFocus)
+        protected virtual void OnApplicationFocus(bool isFocus)
         {
             focused = isFocus;
         }
